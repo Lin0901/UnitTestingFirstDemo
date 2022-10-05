@@ -39,4 +39,14 @@ public class BankAccount
 
     }
 
+    public decimal GetBalance()
+    {
+        return balance;
+    }
+
+    public decimal CalculatePercentage(decimal percentage)
+    {
+        return 0;
+    }
+
 }
