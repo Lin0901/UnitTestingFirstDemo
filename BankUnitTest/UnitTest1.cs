@@ -54,10 +54,29 @@ namespace BankUnitTest
             decimal assertedBalance = depositAmount + InitialBalance;  // asserted = 存款 + 现在。
 
             // act
-            TestAccount
+            TestAccount.Deposit(depositAmount);  // 新建的 第二个 Program 里面
 
             //assert
-            Assert.AreEqual(assertedBalance, TestAccount.balance);
+            Assert.AreEqual(assertedBalance, TestAccount.balance);  // Assert方法：将一个对象与另一个对象进行比较 （期待的，实际的）
+        }
+
+        [TestMethod]
+        public void AccountDeposit_ThrowExceptionOnZeroOrNegativeAmount()  //帐户存款_抛出 "零或负数的异常"。
+        {
+            // arrange
+            decimal firstDepositAmount = 0;
+            decimal secondDepositAmount = -3m;
+
+            //act and assert
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                TestAccount.Deposit(firstDepositAmount);
+            });
+
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                TestAccount.Deposit(secondDepositAmount);
+            });
         }
     }
 }

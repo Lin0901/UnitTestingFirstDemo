@@ -26,7 +26,7 @@ public class BankAccount
     // To be implemented 有待实施
     public decimal Deposit(decimal amount)
     {
-        if (amount >= 0)   // 如果存款 >= 0  就能存
+        if (amount > 0)   // 如果存款 > 0  就能存
         {
             balance += amount;
 
